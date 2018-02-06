@@ -64,6 +64,7 @@ namespace adiscope {
 class ToolLauncher_API;
 class SpectrumAnalyzer;
 class Debugger;
+class ManualCalibration;
 
 class ToolLauncher : public QMainWindow
 {
@@ -111,6 +112,7 @@ private Q_SLOTS:
 	void btnNetworkAnalyzer_clicked();
 	void btnSpectrumAnalyzer_clicked();
 	void btnDebugger_clicked();
+	void btnCalibration_clicked();
 	void on_btnHome_clicked();
 	void setButtonBackground(bool on);
 
@@ -162,6 +164,7 @@ private:
 	NetworkAnalyzer *network_analyzer;
 	SpectrumAnalyzer *spectrum_analyzer;
 	Debugger *debugger;
+	ManualCalibration *manual_calibration;
 	QWidget *current;
 	QSettings *settings;
 	Preferences *prefPanel;
