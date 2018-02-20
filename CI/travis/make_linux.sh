@@ -45,9 +45,25 @@ echo "$libs" | while read -r lib_path; do
 	lib_name="$(echo $lib_path | rev | cut -d "/" -f 1 | rev)"
 	echo "debian/scopy/opt/scopy/lib/$lib_name opt/scopy/lib/"  >> ${TRAVIS_BUILD_DIR}/debian/scopy.install;
 done
+chmod 755 ${TRAVIS_BUILD_DIR}/../libs/*
 sudo chmod 755 ${TRAVIS_BUILD_DIR}/../libs/*
+cat ${TRAVIS_BUILD_DIR}/debian/scopy.install
+
 
 cd ${TRAVIS_BUILD_DIR}/..
-tar -zcvf scopy-1.0.orig.tar.gz scopy
+sudo apt-get install -y devscripts debhelper
+rm scopy_1.0*
+rm scopy-1.0*
+tar -zcf scopy_1.0.orig.tar.gz scopy
+ls
 cd scopy
+pwd
+ls /usr/bin | grep debuild
+echo "=============================================="
+whoami
+mkdir -p ${TRAVIS_BUILD_DIR}/debian/scopy/opt/scopy/bin
+mkdir -p ${TRAVIS_BUILD_DIR}/debian/scopy/opt/scopy/lib
+
 debuild -us -uc
+
+#dpkg-buildpackage -us -uc
