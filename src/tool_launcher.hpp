@@ -187,6 +187,7 @@ private:
 	bool skip_calibration;
 
 	bool debugger_enabled;
+	bool manual_calibration_enabled;
 
 	QString indexFile;
 
@@ -241,6 +242,8 @@ class ToolLauncher_API: public ApiObject
 	Q_PROPERTY(bool debugger READ debugger_enabled WRITE enable_debugger)
 
 	Q_PROPERTY(QString index_file READ getIndexFile WRITE setIndexFile)
+	
+	Q_PROPERTY(bool manual_calibration READ manual_calibration_enabled WRITE enable_manual_calibration)
 
 public:
 	explicit ToolLauncher_API(ToolLauncher *tl) : ApiObject(), tl(tl) {}
@@ -263,6 +266,9 @@ public:
 
 	bool debugger_enabled();
 	void enable_debugger(bool);
+
+	bool manual_calibration_enabled();
+	void enable_manual_calibration(bool);
 
 	const QString& getPreviousIp()
 	{
