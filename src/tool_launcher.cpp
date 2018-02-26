@@ -67,7 +67,7 @@ ToolLauncher::ToolLauncher(QWidget *parent) :
 	skip_calibration(false),
 	calibrating(false),
 	debugger_enabled(false),
-	indexFile("")
+	indexFile(""),
 	manual_calibration_enabled(false)
 {
 	if (!isatty(STDIN_FILENO))
@@ -1532,7 +1532,7 @@ void ToolLauncher_API::enable_debugger(bool enabled)
 	tl->debugger_enabled = enabled;
 }
 
-bool ToolLauncher_API::manual_calibration_enabled()
+bool ToolLauncher_API::manual_calibration_enabled() const
 {
 	return tl->manual_calibration_enabled;
 }
