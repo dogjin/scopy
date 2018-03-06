@@ -56,6 +56,9 @@ public:
 	bool getSave_session_on_exit() const;
 	void setSave_session_on_exit(bool value);
 
+	bool getNa_show_zero() const;
+	void setNa_show_zero(bool value);
+
 Q_SIGNALS:
 
 	void notify();
@@ -72,6 +75,7 @@ private:
 	bool osc_labels_enabled;
 	int sig_gen_periods_nr;
 	bool save_session_on_exit;
+	bool na_show_zero;
 
 	Preferences_API *pref_api;
 	QString getPreferenceIniFile() const;
@@ -85,6 +89,7 @@ class Preferences_API : public ApiObject
 	Q_PROPERTY(int sig_gen_nr_periods READ getSigGenNrPeriods WRITE
 	           setSigGenNrPeriods);
 	Q_PROPERTY(bool save_session_on_exit READ getSaveSession WRITE setSaveSession);
+	Q_PROPERTY(bool na_show_zero READ getNaShowZero WRITE setNaShowZero)
 
 public:
 
@@ -100,6 +105,9 @@ public:
 
 	bool getSaveSession() const;
 	void setSaveSession(const bool& enabled);
+
+	bool getNaShowZero() const;
+	void setNaShowZero(const bool& enabled);
 
 private:
 	Preferences *preferencePanel;
