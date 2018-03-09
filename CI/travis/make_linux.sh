@@ -63,6 +63,8 @@ echo "=============================================="
 whoami
 mkdir -p ${TRAVIS_BUILD_DIR}/debian/scopy/opt/scopy/bin
 mkdir -p ${TRAVIS_BUILD_DIR}/debian/scopy/opt/scopy/lib
+ls
+echo "=============================================="
 
 debuild -us -uc
 
